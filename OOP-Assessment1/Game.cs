@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace OOP_Assessment1
 {
-    internal class Game
+    public class Game
     {
+        Dice D1 = new Dice();
+        Dice D2 = new Dice();
+        Dice D3 = new Dice();
+
     }
 }
