@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,16 +13,16 @@ namespace OOP_Assessment1
             {
             Console.WriteLine("Press any key to roll the dice");
             Console.ReadKey();
-            int D1Value = D1Value.roll();
-            Console.WriteLine("The value of Dice one is: "D1Value);
+            int D1Value = D1Value.Roll();
+            Console.WriteLine("The value of Dice one is: " + D1Value);
             Console.WriteLine("Press any key to roll the dice"); Console.ReadKey();
-            int D2Value = D2Value.roll();
-            Console.WriteLine("The value of Dice one is: "D2Value);
+            int D2Value = D2Value.Roll();
+            Console.WriteLine("The value of Dice one is: " + D2Value);
             Console.WriteLine("Press any key to roll the dice");Console.ReadKey();
-            int D3Value = D3Value.roll();
-            Console.WriteLine("The value of Dice one is: "D3Value);
+            int D3Value = D3Value.Roll();
+            Console.WriteLine("The value of Dice one is: " + D3Value);
             int result = D1Value + D2Value + D3Value;
-            Console.WriteLine("The result of the three Dice is: " + result)
+            Console.WriteLine("The result of the three Dice is: " + result);
 
 
 

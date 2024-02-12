@@ -8,11 +8,12 @@ namespace OOP_Assessment1
 {
     public class Dice
     {
-        public int roll()
+        public int Roll()
         {
             Random random = new Random();
-            int Dicevalue = random.(1, 7);
-            return Dicevalue;
+            int Dvalue = random.Next(1, 7);
+            return Dvalue;
         }
+        int D3Value = D3Value.Roll();
     }
 }
