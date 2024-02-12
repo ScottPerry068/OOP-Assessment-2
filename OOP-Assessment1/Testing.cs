@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace OOP_Assessment1
 {
-    internal class Testing
+    public class Testing
     {
+        public void Test() 
+        {
+            Console.WriteLine("this is bob from bobs burgers!");
+        }
     }
 }
