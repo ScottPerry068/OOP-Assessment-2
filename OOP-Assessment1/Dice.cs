@@ -10,9 +10,10 @@ namespace OOP_Assessment1
     {
         public int Roll()
         {
-           
+
             Random random = new Random();
             int Dvalue = random.Next(1, 7);
+            Console.WriteLine("The number is: " + Dvalue);
             return Dvalue;
             
         }
