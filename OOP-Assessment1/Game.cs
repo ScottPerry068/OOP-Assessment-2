@@ -11,13 +11,14 @@ namespace OOP_Assessment1
     {
         public void Start()
         {
-
             Dice D1 = new Dice(); Dice D2 = new Dice(); Dice D3 = new Dice();
-            int D1Face = D1.Roll(); int D2Face = D2.Roll(); int D3Face = D3.Roll();
+            int D1Face = D1.Roll();
             Console.WriteLine("Press any key to roll the dice"); Console.ReadKey();
             Console.WriteLine("The value of Dice one is: " + D1Face);
+            int D2Face = D2.Roll();
             Console.WriteLine("Press any key to roll the dice"); Console.ReadKey();
             Console.WriteLine("The value of Dice one is: " + D2Face);
+            int D3Face = D3.Roll();
             Console.WriteLine("Press any key to roll the dice"); Console.ReadKey();
             Console.WriteLine("The value of Dice one is: " + D3Face);
             int result = D1Face + D2Face + D3Face;

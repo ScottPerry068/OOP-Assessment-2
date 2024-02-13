@@ -9,13 +9,13 @@ namespace OOP_Assessment1
 {
     public class Program
     {
-            public static void Main()
-            {
+        public static void Main()
+        {
             Game game = new Game();
             Testing gametest = new Testing();
             game.Start();
             gametest.Test();
-            }
+        }
     }
 }
 
