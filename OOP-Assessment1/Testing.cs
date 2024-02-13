@@ -12,13 +12,14 @@ namespace OOP_Assessment1
     {
         public void Test() 
         {
-            Dice D1 = new Dice(); Dice D2 = new Dice(); Dice D3 = new Dice();
-            int D1Face = D1.Roll();
-            Debug.Assert(D1Face >= 1 && D1Face<= 6, "D1 is not within the correct range, check the roll range!");
-            int D2Face = D2.Roll();
-            Debug.Assert(D2Face >= 1 && D2Face <= 6, "D2 is not within the correct range, check the roll range!");
-            int D3Face = D3.Roll();
-            Debug.Assert(D3Face >= 1 && D3Face <= 6, "D3 is not within the correct range, check the roll range!");
+            Dice D1 = new Dice(); Dice D2 = new Dice(); Dice D3 = new Dice(); // this creates 3 new dice for testing 
+            int D1Face = D1.Roll(); // This calls the roll method to give the dice a value 
+            Debug.Assert(D1Face >= 1 && D1Face<= 6, "D1 is not within the correct range, check the roll range!"); // This checks to see if the dice rolls an integer within the range 1-6
+            int D2Face = D2.Roll(); // This calls the roll method to give the dice a value
+            Debug.Assert(D2Face >= 1 && D2Face <= 6, "D2 is not within the correct range, check the roll range!"); // This checks to see if the dice rolls an integer within the range 1-6
+            int D3Face = D3.Roll(); // This calls the roll method to give the dice a value
+            Debug.Assert(D3Face >= 1 && D3Face <= 6, "D3 is not within the correct range, check the roll range!"); // This checks to see if the dice rolls an integer within the range 1-6
+
         }
     }
 }

@@ -9,7 +9,7 @@ namespace OOP_Assessment1
 {
     public class Game
     {
-        public void Start()
+        public void Start() // this method is just used to run the dice game
         {
             Dice D1 = new Dice(); Dice D2 = new Dice(); Dice D3 = new Dice(); // These create my three dice objects 
             int D1Face = D1.Roll(); //this Rolls the first dice
