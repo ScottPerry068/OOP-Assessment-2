@@ -14,6 +14,7 @@ namespace OOP_Assessment1
             Game game = new Game(); // this created the 
             Testing gametest = new Testing(); 
             game.Start(); // this calls the method within game to run the dice rolls
+            gametest.Testsum();
             gametest.Test(); // this calls the method within testing to test the dice rolls 
         }
     }
