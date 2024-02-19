@@ -9,9 +9,14 @@ namespace OOP_Assessment1
 {
     public class Game
     {
+        public int D1Face;
+        public int D2Face;
+        public int D3Face;
+        Dice D1 = new Dice();
+        Dice D2 = new Dice();
+        Dice D3 = new Dice();
         public void Start() // this method is just used to run the dice game
         {
-            Dice D1 = new Dice(); Dice D2 = new Dice(); Dice D3 = new Dice(); // These create my three dice objects 
             int D1Face = D1.Roll(); //this Rolls the first dice
             Console.WriteLine("Press any key to roll the dice"); Console.ReadKey(true); // this line prompts the user to roll the dice by hitting a key on their device 
             Console.WriteLine("The value of Dice one is: " + D1Face); // this line prints the face value for the user to see what the dice rolled

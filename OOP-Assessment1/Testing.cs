@@ -12,9 +12,14 @@ namespace OOP_Assessment1
 {
     public class Testing
     {
+        public int D1Face;
+        public int D2Face;
+        public int D3Face;
+        Dice D1 = new Dice();
+        Dice D2 = new Dice();
+        Dice D3 = new Dice();
         public void Test()
         {
-            Dice D1 = new Dice(); Dice D2 = new Dice(); Dice D3 = new Dice(); // this creates 3 new dice for testing
             int D1Face = D1.Roll(); // This calls the roll method to give the dice a value 
             Debug.Assert(D1Face >= 1 && D1Face <= 6, "D1 is not within the correct range, check the roll range!"); // This checks to see if the dice rolls an integer within the range 1-6
             int D2Face = D2.Roll(); // This calls the roll method to give the dice a value
