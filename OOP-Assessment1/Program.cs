@@ -9,7 +9,7 @@ namespace OOP_Assessment1
 {
     public class Program
     {
-        public static void Main() // this method runs the program as an entireity 
+        private static void Main() // this method runs the program as an entireity 
         {
             Game game = new Game(); // this created the 
             Testing gametest = new Testing(); 
