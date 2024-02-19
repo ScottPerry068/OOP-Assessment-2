@@ -8,8 +8,8 @@ namespace OOP_Assessment1
 {
     public class Dice
     {
-        private static Random random = new Random(); // this creates a class called random
-        private int Dvalue; 
+        private static Random random = new Random(); // this creates the random
+        private int Dvalue; // this creates the die value 
 
         public int Roll() // this is the method i use to create the roll enviroment 
         {

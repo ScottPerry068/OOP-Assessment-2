@@ -12,8 +12,9 @@ namespace OOP_Assessment1
 {
     public class Testing
     {
-        private int D1Face;private int D2Face; private int D3Face;private int result;
-        private Dice D1 = new Dice();private Dice D2 = new Dice();private Dice D3 = new Dice();
+        private int D1Face;private int D2Face; private int D3Face; // this creates the Dice face values for testing
+        private int result; // this  creates the result 
+        private Dice D1 = new Dice();private Dice D2 = new Dice();private Dice D3 = new Dice(); // this creates the new dice for testing
         public void Test()
         {
             int D1Face = D1.Roll(); // This calls the roll method to give the dice a value 
@@ -26,11 +27,9 @@ namespace OOP_Assessment1
             
         public void Testsum()
         {
-            D1Face = D1.Roll();
-            D2Face = D2.Roll();
-            D3Face = D3.Roll();
-            result = D1Face + D2Face + D3Face;
-            Debug.Assert(result == D1Face+D2Face+D3Face, "this is incorrect please check the Result or DFaces for errors!");
+            D1Face = D1.Roll();D2Face = D2.Roll();D3Face = D3.Roll();//this rolls the three dice
+            result = D1Face + D2Face + D3Face;//this does the addition for the three dice faces 
+            Debug.Assert(result == D1Face+D2Face+D3Face, "this is incorrect please check the Result or DFaces for errors!");//this checks to see if the sum of the three faces is correct 
 
         }
 
