@@ -8,12 +8,14 @@ namespace OOP_Assessment1
 {
     public class Dice
     {
-        private static Random random = new Random(); // this creates the random
+        //creates the random 
+        private static Random random = new Random();
+        // creates the variable 
         private int Dvalue; // this creates the die value 
-
-        public int Roll() // this is the method i use to create the roll enviroment 
+        //performs the roll
+        public int Roll()
         {
-            Dvalue = random.Next(1, 6); // this creates a random number between 1 and 6 
+            Dvalue = random.Next(1, 7); // this creates a random number between 1 and 6 
             return Dvalue; // this returns the random number 
         }
     }

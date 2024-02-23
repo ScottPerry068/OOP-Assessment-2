@@ -9,14 +9,15 @@ namespace OOP_Assessment1
 {
     public class Program
     {
-        private static void Main() // this method runs the program as an entireity 
+        //this runs the entire program
+        private static void Main() 
         {
-            Game game = new Game(); // this created the a new game for running 
-            Testing gametest = new Testing(); 
-            game.Start(); // this calls the method within game to run the dice rolls
-            gametest.Testsum();//this calls the method within the testing to test the dice sum
-            gametest.Test(); // this calls the method within testing to test the dice rolls 
+                Game game = new Game(); // this created the a new game for running 
+                Testing gametest = new Testing();
+                game.Start(); // this calls the method within game to run the dice rolls
+                gametest.Testsum();//this calls the method within the testing to test the dice 
+                gametest.Test(); // this calls the method within testing to test the dice rolls 
+            }
         }
     }
-}
 
