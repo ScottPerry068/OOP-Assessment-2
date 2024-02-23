@@ -9,9 +9,13 @@ namespace OOP_Assessment1
 {
     public class Game
     {
-        private int D1Face;private int D2Face;private int D3Face; // this creates the rolled dice value
-        private Dice D1 = new Dice(); private Dice D2 = new Dice();private Dice D3 = new Dice(); // this creates the dice 
+        // creates the variables
+        private int D1Face;private int D2Face;private int D3Face; // this variabl is created to hold the dice values
         private int result; //this creates the result
+        // creates the objects
+        private Dice D1 = new Dice(); private Dice D2 = new Dice();private Dice D3 = new Dice(); // this creates the dice objects
+
+        // runs the game
         public void Start() // this method is just used to run the dice game
         {
             D1Face = D1.Roll(); //this Rolls the first dice

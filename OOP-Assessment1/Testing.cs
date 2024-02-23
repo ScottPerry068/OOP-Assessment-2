@@ -13,11 +13,11 @@ namespace OOP_Assessment1
     public class Testing
     {
         // creates the variables
-        private int D1Face;private int D2Face; private int D3Face; // this creates the Dice face values for testing
-        private int result; // this  creates the result 
+        private int D1Face;private int D2Face; private int D3Face; // this creates the Dice face variables for testing
+        private int result; // this creates the result variable
 
         // creates the objects
-        private Dice D1 = new Dice();private Dice D2 = new Dice();private Dice D3 = new Dice(); // this creates the new dice for testing
+        private Dice D1 = new Dice();private Dice D2 = new Dice();private Dice D3 = new Dice(); // this creates the new dice objects for testing (object instantiation)
 
         // runs the face check 
         public void Test()
