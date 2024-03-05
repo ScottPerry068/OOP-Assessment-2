@@ -33,8 +33,8 @@ namespace OOP_Assessment1
         //runs the sum check
         public void Testsum()
         {
-            _D1Face = _D1.Roll();_D2Face = _D2.Roll();_D2Face = _D2.Roll();//this rolls the three dice
-            _result = _D1Face + _D2Face + _D3Face;//this does the addition for the three dice faces 
+            _D1Face = _D1.Roll();_D2Face = _D2.Roll();_D3Face = _D3.Roll();//this rolls the three dice
+            _result = _D1Face + _D2Face+ _D3Face;//this does the addition for the three dice faces 
             Debug.Assert(_result == _D1Face +_D2Face+_D3Face, "The sums don't match, there is an issue!");//this checks to see if the sum of the three faces is correct
         }
 

@@ -11,7 +11,7 @@ namespace OOP_Assessment1
     {
         // creates the variables
         private int _D1Face;private int _D2Face;private int _D3Face; // this variabl is created to hold the dice values
-        private int result; //this creates the result
+        private int _result; //this creates the result
         // creates the objects
         private Dice _D1 = new Dice(); private Dice _D2 = new Dice();private Dice _D3 = new Dice(); // this creates the dice objects
 
@@ -27,8 +27,8 @@ namespace OOP_Assessment1
             _D3Face = _D3.Roll(); //this rolls the third dice
             Console.WriteLine("Press any key to roll the dice"); Console.ReadKey(true); // this line prompts the user to roll the dice by hitting a key on their device 
             Console.WriteLine("The value of Dice three is: " + _D3Face); // this line prints the face value for the user to see what the dice rolled
-            result = _D1Face + _D2Face + _D3Face; // this line does the addtiion for all the faces rolled by the three dice 
-            Console.WriteLine("The result of the three Dice is: " + result); // this tells the user the result of the three faces added togther
+            _result = _D1Face + _D2Face + _D3Face; // this line does the addtiion for all the faces rolled by the three dice 
+            Console.WriteLine("The result of the three Dice is: " + _result); // this tells the user the result of the three faces added togther
 
         }
         
