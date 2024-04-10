@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOP_Assessment1
+namespace OOP_Assessment2
 {
     public class Dice
     {
