@@ -14,6 +14,8 @@ namespace OOP_Assessment2
         private int _result; //this creates the result
         private static Dice _Dice = new Dice();/// this creates the dice objects
         bool Start = true;
+        int i = 0;
+        int x = 0;
         public void SevensOut() // this method is just used to run the dice game
         {
             Console.WriteLine("1: Human Player ");
@@ -23,8 +25,6 @@ namespace OOP_Assessment2
             int Value;
             List<int> DiceRolledlist = new List<int>();
             List<int> WinningList = new List<int>();
-            int i = 0;
-            int x = 0;
             try
             {
                 if (user == "1")
@@ -155,43 +155,72 @@ namespace OOP_Assessment2
             List<int> WinningList = new List<int>();
             try
             {
-                while (Start == true){
-                    if (user == "1")
+
+                if (user == "1")
+                {
+                    while (Start == true)
                     {
-                        for (int i = 0; i < 5; i++)
+                        for (i = 0; i < 5; i++)
                         {
                             _DiceFace = _Dice.Roll();
                             DiceRolledlist.Add(_DiceFace);
+                            Console.WriteLine("this is dice roll : " + DiceRolledlist[i]);
+
                         }
-                        for (int i = 0; i < 4; i++)
+                        foreach (int item in DiceRolledlist)
                         {
-                            int x = 1;
-                            if (DiceRolledlist[i] == DiceRolledlist[(x + i)]) {
-                                Console.WriteLine(x + " : " + i + " yeahhhhhhhhhhhhhh babyyyyyyyyyy!!!!");
-                                WinningList.Add(x);
-                                Console.WriteLine(WinningList[0]); //+ WinningList[1] + WinningList[2]) ;
-                                if (WinningList[0] == 3)
-                                {
-                                    Console.WriteLine("Player [BLANK] has got 3 points!!");
-                                }
+                            Console.WriteLine(item);
+                        }
+                        for (i = 0; i < 1; i++)
+                        {
+                            DiceRolledlist.Sort();
+                            Console.WriteLine(DiceRolledlist[0]);
+                            Console.WriteLine(DiceRolledlist[4]);
+                            if (DiceRolledlist[0] == DiceRolledlist[4])
+                            {
+                                Console.WriteLine("Player [BLANK] has got 12 points!!");
                             }
+                            else if (DiceRolledlist[0] == DiceRolledlist[3])
+                            {
+                                Console.WriteLine("Player [BLANK] has got 6 points!!");
+
+                            }
+                            else if (DiceRolledlist[0] == DiceRolledlist[2])
+                            {
+                                Console.WriteLine("Player [BLANK] has got 3 points!!");
+
+                            }
+                            else if (DiceRolledlist[0] == DiceRolledlist[1])
+                            {
+                                Console.WriteLine("Player [BLANK] reroll or roll reaming dice?");
+
+                            }
+                            else
+                            {
+                                Console.WriteLine("none");
+                            }
+
                         }
-                        Console.WriteLine("This is the result of 3 dice rolls " + _result);
-                    }
-                    if (user == "2")
-                    {
-                        for (int i = 0; i < 3; i++)
+
+                        i = 0;
+                        DiceRolledlist.Clear();
+
+
+                        if (user == "2")
                         {
-                            _DiceFace = _Dice.Roll();
-                            DiceRolledlist.Add(_DiceFace);
+                            for (int i = 0; i < 3; i++)
+                            {
+                                _DiceFace = _Dice.Roll();
+                                DiceRolledlist.Add(_DiceFace);
+                            }
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Value = DiceRolledlist[i];
+                                _result = Value + Temp;
+                                Temp = _result;
+                            }
+                            Console.WriteLine("This is the result of 3 dice rolls " + _result);
                         }
-                        for (int i = 0; i < 3; i++)
-                        {
-                            Value = DiceRolledlist[i];
-                            _result = Value + Temp;
-                            Temp = _result;
-                        }
-                        Console.WriteLine("This is the result of 3 dice rolls " + _result);
                     }
                 }
             }
