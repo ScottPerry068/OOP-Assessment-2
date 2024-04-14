@@ -51,19 +51,31 @@ namespace OOP_Assessment2
             Console.WriteLine("╚══════╝╚═╝░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝╚══════╝░░░░╚════╝░╚═╝░░╚═╝░░░╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚═╝╚══════╝");
             Console.WriteLine("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
             Console.WriteLine("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
-            var User = Console.ReadLine();
-            int user = Convert.ToInt32(User);
-            if(user == 1)
-              {
-               game.SevensOut();
-              }
-            if (user == 2) 
-              {
-               game.ThreeOrMore();
-              }
-                  gametest.Testsum();//this calls the method within the testing to test the dice 
-                  gametest.Test(); // this calls the method within testing to test the dice rolls 
+            var user = Console.ReadLine();
+            //int user = Convert.ToInt32(User);
+            
+                if (user == "1")
+                {
+                    game.SevensOut();
+                }
+                if (user == "2")
+                {
+                    game.ThreeOrMore();
+                }
+            if (user == "3")
+            {
+                Console.WriteLine("soon to be testing!!!!!!");
+                //gametest.Testsum();//this calls the method within the testing to test the dice 
+                //gametest.Test(); // this calls the method within testing to test the dice rolls 
+            }
+            else
+            {
+                Main();
+            }
+            }
+            
+
               }
         }
-    }
+    
 

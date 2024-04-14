@@ -13,148 +13,133 @@ namespace OOP_Assessment2
         private static int _DiceFace;// this variable is created to hold the dice values
         private int _result; //this creates the result
         private static Dice _Dice = new Dice();/// this creates the dice objects
+        bool Start = true;
         public void SevensOut() // this method is just used to run the dice game
         {
             Console.WriteLine("1: Human Player ");
             Console.WriteLine("2: Computer Player");
-            var User = Console.ReadLine();
-            int user = Convert.ToInt32(User);
+            var user = Console.ReadLine();
             int Temp = 0;
             int Value;
             List<int> DiceRolledlist = new List<int>();
             List<int> WinningList = new List<int>();
-            if (user == 1)
+            int i = 0;
+            int x = 0;
+            try
             {
-                for (int i = 0; i < 2; i++)
+                if (user == "1")
                 {
-                    Console.WriteLine("any key to roll");
-                    Console.ReadKey(true);
-                    Console.WriteLine("Player " + (i + 1));
-                    for (int x = 0; x < 2; x++)
+                    while (Start == true)
                     {
-                        _DiceFace = _Dice.Roll();
-                        DiceRolledlist.Add(_DiceFace);
-                    }
-                    for (int x = 0; x < 2; x++)
-                    {
-                        Value = DiceRolledlist[x];
-                        Console.WriteLine("This is roll: " + x + " " + Value);
-                        _result = Value + Temp;
-                        Temp = _result;
-                        if (DiceRolledlist[0] == DiceRolledlist[1])
+                        for (i = 0 ; i < 2; i++)
                         {
-                            _result = _result * 2;
+                            Console.WriteLine("Player " + (i + 1));
+                            for (x = 0; x < 2; x++)
+                            {
+                                _DiceFace = _Dice.Roll();
+                                DiceRolledlist.Add(_DiceFace);
+                            }
+                            for (x = 0; x < 2; x++)
+                            {
+                                Console.WriteLine("any key to roll");
+                                Console.ReadKey(true);
+                                Value = DiceRolledlist[x];
+                                Console.WriteLine("This is roll: " + (x + 1) + " " + Value);
+                                _result = Value + Temp;
+                                Temp = _result;
+                                WinningList.Add(_result);
+                                if (_result == 7)
+                                {
+                                    Console.WriteLine("Player " + (i + 1) + " you win!");
+                                    Environment.Exit(0);
+                                }
+                                if (DiceRolledlist[0] == DiceRolledlist[1])
+                                {
+                                    _result = _result * 2;
+                                }
+                            }
+                            Console.WriteLine(_result);
+                            DiceRolledlist.Clear();
+                            Value = 0;
+                            Temp = 0;
                         }
+                        i = 0;
+                        x = 0;
                     }
-                    if (_result == 7)
+                }
+
+                if (user == "2")
+                {
+                    while (Start == true)
                     {
-                        Console.WriteLine("Player " + (i + 1) + " you win!");
-                        Environment.Exit(0);
+                        for (i = 0; i < 2; i++)
+                        {
+                            _DiceFace = _Dice.Roll();
+                            DiceRolledlist.Add(_DiceFace);
+                        }
+                        for (i = 0; i < 2; i++)
+                        {
+                            Console.WriteLine("any key to roll");
+                            Console.ReadKey(true);
+                            Value = DiceRolledlist[i];
+                            Console.WriteLine("Dice roll " + (i + 1) + ": " + Value);
+                            _result = Value + Temp;
+                            Temp = _result;
+                            if (DiceRolledlist[0] == DiceRolledlist[1])
+                            {
+                                _result = _result * 2;
+                            }
+
+                            if (_result == 7)
+                            {
+                                Console.WriteLine("you win!");
+                                Environment.Exit(0);
+                            }
+                        }
+                        Console.WriteLine(_result);
+                        WinningList.Add(_result);
+                        DiceRolledlist.Clear();
+                        Value = 0;
+                        Temp = 0;
+
+                        // Computer play
+                        Console.WriteLine("Computers turn: ");
+                        for (i = 0; i < 2; i++)
+                        {
+                            _DiceFace = _Dice.Roll();
+                            DiceRolledlist.Add(_DiceFace);
+                        }
+                        for (i = 0; i < 2; i++)
+                        {
+                            Value = DiceRolledlist[i];
+                            int Delay = 1000;
+                            Thread.Sleep(Delay);
+                            Console.WriteLine("Computer rolled " + (i + 1) + ": " + Value);
+                            _result = Value + Temp;
+                            Temp = _result;
+                            if (DiceRolledlist[0] == DiceRolledlist[1])
+                            {
+                                _result = _result * 2;
+                            }
+                            if (_result == 7)
+                            {
+                                Console.WriteLine("Computer wins!");
+                                Environment.Exit(0);
+                            }
+                        }
+                        Console.WriteLine(_result);
+                        WinningList.Add(_result);
+                        DiceRolledlist.Clear();
+                        Value = 0;
+                        Temp = 0;
                     }
-                    Console.WriteLine(_result);
-                    WinningList.Add(_result);
-                    DiceRolledlist.Clear();
-                    Value = 0;
-                    Temp = 0;
-                }
-                if (WinningList[0] > WinningList[1])
-                {
-                    Console.WriteLine("Player 1 wins!");
-                    Environment.Exit(0);
-
-                }
-                if ((WinningList[1] > WinningList[0]))
-                {
-                    Console.WriteLine("Player 2 wins!");
-                    Environment.Exit(0);
-
-                }
-                if ((WinningList[1] == WinningList[0]))
-                {
-                    Console.WriteLine("its a draw!!");
-                    Environment.Exit(0);
+                    i = 0;
                 }
             }
-
-                if (user == 2)
-                {
-                    for (int i = 0; i < 2; i++)
-                    {
-                        _DiceFace = _Dice.Roll();
-                        DiceRolledlist.Add(_DiceFace);
-                    }
-                for (int i = 0; i < 2; i++)
-                {
-                    Console.WriteLine("any key to roll");
-                    Console.ReadKey(true);
-                    Value = DiceRolledlist[i];
-                    Console.WriteLine("Dice roll " + (i + 1) + ": " + Value);
-                    _result = Value + Temp;
-                    Temp = _result;
-                    if (DiceRolledlist[0] == DiceRolledlist[1])
-                    {
-                        _result = _result * 2;
-                    }
-
-                    if (_result == 7)
-                    {
-                        Console.WriteLine("you win!");
-                        Environment.Exit(0);
-                    }
-                }
-                Console.WriteLine(_result);
-                WinningList.Add(_result);
-                DiceRolledlist.Clear();
-                Value = 0;
-                Temp = 0;
-                
-                // Computer play
-                Console.WriteLine("Computers turn: ");
-                for (int i = 0; i < 2; i++)
-                {
-                    _DiceFace = _Dice.Roll();
-                    DiceRolledlist.Add(_DiceFace);
-                }
-                for (int i = 0; i < 2; i++)
-                {
-                    Value = DiceRolledlist[i];
-                    int Delay = 1000;
-                    Thread.Sleep(Delay);
-                    Console.WriteLine("Computer rolled " + (i + 1) + ": " + Value);
-                    _result = Value + Temp;
-                    Temp = _result;
-                    if (DiceRolledlist[0] == DiceRolledlist[1])
-                    {
-                        _result = _result * 2;
-                    }
-                    if (_result == 7)
-                    {
-                        Console.WriteLine("Computer wins!");
-                        Environment.Exit(0);
-                    }
-                }
-                Console.WriteLine(_result);
-                WinningList.Add(_result);
-                DiceRolledlist.Clear();
-                Value = 0;
-                Temp = 0;
-            }
-            if (WinningList[0] > WinningList[1])
+            catch(Exception)
             {
-                Console.WriteLine("You win!");
-                Environment.Exit(0);
-
-            }
-            if ((WinningList[1] > WinningList[0]))
-            {
-                Console.WriteLine("Computer wins!");
-                Environment.Exit(0);
-
-            }
-            if ((WinningList[1] == WinningList[0]))
-            {
-                Console.WriteLine("its a draw!!");
-                Environment.Exit(0);
+                Console.WriteLine("incorrect format try again");
+                SevensOut();
             }
         }
         
@@ -163,54 +148,54 @@ namespace OOP_Assessment2
         {
             Console.WriteLine("1: Human Player ");
             Console.WriteLine("2: Computer Player");
-            var User = Console.ReadLine();
-            int user = Convert.ToInt32(User);
+            var user = Console.ReadLine();
             int Temp = 0;
             int Value;
             List<int> DiceRolledlist = new List<int>();
             List<int> WinningList = new List<int>();
             try
             {
-                if (user == 1)
-                {
-                    for (int i = 0; i < 3; i++)
+                while (Start == true){
+                    if (user == "1")
                     {
-                        _DiceFace = _Dice.Roll();
-                        //Console.WriteLine(_DiceFace);
-                        DiceRolledlist.Add(_DiceFace);
+                        for (int i = 0; i < 5; i++)
+                        {
+                            _DiceFace = _Dice.Roll();
+                            DiceRolledlist.Add(_DiceFace);
+                        }
+                        for (int i = 0; i < 4; i++)
+                        {
+                            int x = 1;
+                            if (DiceRolledlist[i] == DiceRolledlist[(x + i)]) {
+                                Console.WriteLine(x + " : " + i + " yeahhhhhhhhhhhhhh babyyyyyyyyyy!!!!");
+                                WinningList.Add(x);
+                                Console.WriteLine(WinningList[0]); //+ WinningList[1] + WinningList[2]) ;
+                                if (WinningList[0] == 3)
+                                {
+                                    Console.WriteLine("Player [BLANK] has got 3 points!!");
+                                }
+                            }
+                        }
+                        Console.WriteLine("This is the result of 3 dice rolls " + _result);
                     }
-                    for (int i = 0; i < 3; i++)
+                    if (user == "2")
                     {
-                        Value = DiceRolledlist[i];
-                        //Console.WriteLine("This is value " + Value);
-                        _result = Value + Temp;
-                        Temp = _result;
-                        //Console.WriteLine("This is temp " + Temp);
-                        //Console.WriteLine("This is result " + _result);
+                        for (int i = 0; i < 3; i++)
+                        {
+                            _DiceFace = _Dice.Roll();
+                            DiceRolledlist.Add(_DiceFace);
+                        }
+                        for (int i = 0; i < 3; i++)
+                        {
+                            Value = DiceRolledlist[i];
+                            _result = Value + Temp;
+                            Temp = _result;
+                        }
+                        Console.WriteLine("This is the result of 3 dice rolls " + _result);
                     }
-                    Console.WriteLine("This is the result of 3 dice rolls " + _result);
-                }
-                if (user == 2)
-                {
-                    for (int i = 0; i < 3; i++)
-                    {
-                        _DiceFace = _Dice.Roll();
-                        //Console.WriteLine(_DiceFace);
-                        DiceRolledlist.Add(_DiceFace);
-                    }
-                    for (int i = 0; i < 3; i++)
-                    {
-                        Value = DiceRolledlist[i];
-                        //Console.WriteLine("This is value " + Value);
-                        _result = Value + Temp;
-                        Temp = _result;
-                        //Console.WriteLine("This is temp " + Temp);
-                        //Console.WriteLine("This is result " + _result);
-                    }
-                    Console.WriteLine("This is the result of 3 dice rolls " + _result);
                 }
             }
-            catch(FormatException)
+            catch (FormatException)
             {
                 Console.WriteLine("incorrect format or invalid number!!");
                 ThreeOrMore();
