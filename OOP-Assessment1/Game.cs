@@ -164,12 +164,12 @@ namespace OOP_Assessment2
                         for (i = 0; i < 5; i++)
                         {
                             _DiceFace = _Dice.Roll();
-                            DiceRolledlist.Add(_DiceFace);
+                            DiceRolledlist.Add(5);
                             Console.WriteLine("this is dice roll : " + DiceRolledlist[i]);
 
                         }
                         DiceRolledlist.Sort();
-                        for (x = 1; x < 4; x++)
+                        for (x = 1; x < 5; x++)
                         {
                             i = 0;
                             //Console.WriteLine(DiceRolledlist[0]);
@@ -177,24 +177,25 @@ namespace OOP_Assessment2
                             //Console.WriteLine(DiceRolledlist[2]);
                             //Console.WriteLine(DiceRolledlist[3]);
                             //Console.WriteLine(DiceRolledlist[4]);
-                            Console.WriteLine(i);
-                            Console.WriteLine(x);
+                            Console.WriteLine("Loop 1");
                             if (DiceRolledlist[i] == DiceRolledlist[x])
                             {
                                 Console.WriteLine(i);
                                 Console.WriteLine(x);
                                 Counter++;
+                                
                             }
 
                         }
                         x = 1;
-                        for (i = 1; i < 3; i++)
+                        for (i = 1; i < 4; i++)
                         {
                             //Console.WriteLine(DiceRolledlist[0]);
                             //Console.WriteLine(DiceRolledlist[1]);
                             //Console.WriteLine(DiceRolledlist[2]);
                             //Console.WriteLine(DiceRolledlist[3]);
                             //Console.WriteLine(DiceRolledlist[4]);
+                            Console.WriteLine("Loop 2");
                             if (DiceRolledlist[x] == DiceRolledlist[i + 1])
                             {
                                 Console.WriteLine(i);
@@ -202,13 +203,14 @@ namespace OOP_Assessment2
                                 Counter++;
                             }
                         }
-                        for (i = 3; i < 2; i++)
+                        for (i = 3; i < 5; i++)
                         {
                             //Console.WriteLine(DiceRolledlist[0]);
                             //Console.WriteLine(DiceRolledlist[1]);
                             //Console.WriteLine(DiceRolledlist[2]);
                             //Console.WriteLine(DiceRolledlist[3]);
                             //Console.WriteLine(DiceRolledlist[4]);
+                            Console.WriteLine("Loop 3");
                             if (DiceRolledlist[x + 1] == DiceRolledlist[i])
                             {
                                 Console.WriteLine(i);
@@ -216,13 +218,14 @@ namespace OOP_Assessment2
                                 Counter++;
                             }
                         }
-                        for (i = 3; i < 1; i++)
+                        for (i = 3; i < 4; i++)
                         {
-                            Console.WriteLine(DiceRolledlist[0]);
-                            Console.WriteLine(DiceRolledlist[1]);
-                            Console.WriteLine(DiceRolledlist[2]);
-                            Console.WriteLine(DiceRolledlist[3]);
-                            Console.WriteLine(DiceRolledlist[4]);
+                            //Console.WriteLine(DiceRolledlist[0]);
+                            //Console.WriteLine(DiceRolledlist[1]);
+                            //Console.WriteLine(DiceRolledlist[2]);
+                            //Console.WriteLine(DiceRolledlist[3]);
+                            //Console.WriteLine(DiceRolledlist[4]);
+                            //Console.WriteLine("Loop 4");
                             if (DiceRolledlist[x] == DiceRolledlist[i+1])
                             {
                                 Console.WriteLine(i);
@@ -239,7 +242,7 @@ namespace OOP_Assessment2
                             }
                             else if(Counter == 3)
                             {
-                                Console.WriteLine("PLayer gets 6 points");
+                                Console.WriteLine("PLayer gets 3 points");
                                 Environment.Exit(0);
                             }
                             else if(Counter == 2)
@@ -256,10 +259,12 @@ namespace OOP_Assessment2
                         else
                         {
                             Console.WriteLine("No Matching numbers");
+                            Environment.Exit(0);
                         }
                         x = 1;
                         i = 0;
                         DiceRolledlist.Clear();
+                        Environment.Exit(0);
                     }
 
                 }
