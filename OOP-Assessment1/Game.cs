@@ -15,7 +15,8 @@ namespace OOP_Assessment2
         private static Dice _Dice = new Dice();/// this creates the dice objects
         bool Start = true;
         int i = 0;
-        int x = 0;
+        int x = 1;
+        int Counter = 0;
         public void SevensOut() // this method is just used to run the dice game
         {
             Console.WriteLine("1: Human Player ");
@@ -167,73 +168,101 @@ namespace OOP_Assessment2
                             Console.WriteLine("this is dice roll : " + DiceRolledlist[i]);
 
                         }
-                        for (i = 0; i < 1; i++)
+                        DiceRolledlist.Sort();
+                        for (x = 1; x < 4; x++)
                         {
-                            DiceRolledlist.Sort();
+                            i = 0;
+                            //Console.WriteLine(DiceRolledlist[0]);
+                            //Console.WriteLine(DiceRolledlist[1]);
+                            //Console.WriteLine(DiceRolledlist[2]);
+                            //Console.WriteLine(DiceRolledlist[3]);
+                            //Console.WriteLine(DiceRolledlist[4]);
+                            Console.WriteLine(i);
+                            Console.WriteLine(x);
+                            if (DiceRolledlist[i] == DiceRolledlist[x])
+                            {
+                                Console.WriteLine(i);
+                                Console.WriteLine(x);
+                                Counter++;
+                            }
+
+                        }
+                        x = 1;
+                        for (i = 1; i < 3; i++)
+                        {
+                            //Console.WriteLine(DiceRolledlist[0]);
+                            //Console.WriteLine(DiceRolledlist[1]);
+                            //Console.WriteLine(DiceRolledlist[2]);
+                            //Console.WriteLine(DiceRolledlist[3]);
+                            //Console.WriteLine(DiceRolledlist[4]);
+                            if (DiceRolledlist[x] == DiceRolledlist[i + 1])
+                            {
+                                Console.WriteLine(i);
+                                Console.WriteLine(x);
+                                Counter++;
+                            }
+                        }
+                        for (i = 3; i < 2; i++)
+                        {
+                            //Console.WriteLine(DiceRolledlist[0]);
+                            //Console.WriteLine(DiceRolledlist[1]);
+                            //Console.WriteLine(DiceRolledlist[2]);
+                            //Console.WriteLine(DiceRolledlist[3]);
+                            //Console.WriteLine(DiceRolledlist[4]);
+                            if (DiceRolledlist[x + 1] == DiceRolledlist[i])
+                            {
+                                Console.WriteLine(i);
+                                Console.WriteLine(x);
+                                Counter++;
+                            }
+                        }
+                        for (i = 3; i < 1; i++)
+                        {
                             Console.WriteLine(DiceRolledlist[0]);
                             Console.WriteLine(DiceRolledlist[1]);
                             Console.WriteLine(DiceRolledlist[2]);
                             Console.WriteLine(DiceRolledlist[3]);
                             Console.WriteLine(DiceRolledlist[4]);
-                            if (DiceRolledlist[0] == DiceRolledlist[4])
+                            if (DiceRolledlist[x] == DiceRolledlist[i+1])
                             {
-                                Console.WriteLine("Player [BLANK] has got 12 points!!");
+                                Console.WriteLine(i);
+                                Counter++;
                             }
-                            else if (DiceRolledlist[1] == DiceRolledlist[4])
-                            {
-                                Console.WriteLine("Player [BLANK] has got 6 points!!");
-                            }
-                            else if (DiceRolledlist[0] == DiceRolledlist[3])
-                            {
-                                Console.WriteLine("Player [BLANK] has got 6 points!!");
-
-                            }
-                            else if (DiceRolledlist[0] == DiceRolledlist[2])
-                            {
-                                Console.WriteLine("Player [BLANK] has got 3 points!!");
-
-                            }
-                            else if (DiceRolledlist[1] == DiceRolledlist[3])
-                            {
-                                Console.WriteLine("Player [BLANK] has got 3 points!!");
-
-                            }
-                            else if (DiceRolledlist[2] == DiceRolledlist[4])
-                            {
-                                Console.WriteLine("Player [BLANK] has got 3 points!!");
-
-                            }
-                            else if (DiceRolledlist[0] == DiceRolledlist[1])
-                            {
-                                Console.WriteLine("Player [BLANK] reroll or roll reaming dice?");
-
-                            }
-                            else if (DiceRolledlist[1] == DiceRolledlist[2])
-                            {
-                                Console.WriteLine("Player [BLANK] reroll or roll reaming dice?");
-
-                            }
-                            else if (DiceRolledlist[2] == DiceRolledlist[3])
-                            {
-                                Console.WriteLine("Player [BLANK] reroll or roll reaming dice?");
-
-                            }
-                            else if (DiceRolledlist[3] == DiceRolledlist[4])
-                            {
-                                Console.WriteLine("Player [BLANK] reroll or roll reaming dice?");
-
-                            }
-                            else
-                            {
-                                Console.WriteLine("none");
-                            }
-
                         }
-
+                        if (Counter >= 1)
+                        {
+                            Console.WriteLine("Counter is working");
+                            if (Counter == 4)
+                            {
+                                Console.WriteLine("Player gets 12 points");
+                                Environment.Exit(0);
+                            }
+                            else if(Counter == 3)
+                            {
+                                Console.WriteLine("PLayer gets 6 points");
+                                Environment.Exit(0);
+                            }
+                            else if(Counter == 2)
+                            {
+                                Console.WriteLine("PLayer gets 3 points");
+                                Environment.Exit(0);
+                            }
+                            else if (Counter == 1)
+                            {
+                                Console.WriteLine("PLayer to re-roll");
+                                Environment.Exit(0);
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No Matching numbers");
+                        }
+                        x = 1;
                         i = 0;
                         DiceRolledlist.Clear();
+                    }
 
-
+                }
                         if (user == "2")
                         {
                             for (int i = 0; i < 3; i++)
@@ -250,8 +279,8 @@ namespace OOP_Assessment2
                             Console.WriteLine("This is the result of 3 dice rolls " + _result);
                         }
                     }
-                }
-            }
+                
+            
             catch (FormatException)
             {
                 Console.WriteLine("incorrect format or invalid number!!");
