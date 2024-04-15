@@ -167,18 +167,21 @@ namespace OOP_Assessment2
                             Console.WriteLine("this is dice roll : " + DiceRolledlist[i]);
 
                         }
-                        foreach (int item in DiceRolledlist)
-                        {
-                            Console.WriteLine(item);
-                        }
                         for (i = 0; i < 1; i++)
                         {
                             DiceRolledlist.Sort();
                             Console.WriteLine(DiceRolledlist[0]);
+                            Console.WriteLine(DiceRolledlist[1]);
+                            Console.WriteLine(DiceRolledlist[2]);
+                            Console.WriteLine(DiceRolledlist[3]);
                             Console.WriteLine(DiceRolledlist[4]);
                             if (DiceRolledlist[0] == DiceRolledlist[4])
                             {
                                 Console.WriteLine("Player [BLANK] has got 12 points!!");
+                            }
+                            else if (DiceRolledlist[1] == DiceRolledlist[4])
+                            {
+                                Console.WriteLine("Player [BLANK] has got 6 points!!");
                             }
                             else if (DiceRolledlist[0] == DiceRolledlist[3])
                             {
@@ -190,7 +193,32 @@ namespace OOP_Assessment2
                                 Console.WriteLine("Player [BLANK] has got 3 points!!");
 
                             }
+                            else if (DiceRolledlist[1] == DiceRolledlist[3])
+                            {
+                                Console.WriteLine("Player [BLANK] has got 3 points!!");
+
+                            }
+                            else if (DiceRolledlist[2] == DiceRolledlist[4])
+                            {
+                                Console.WriteLine("Player [BLANK] has got 3 points!!");
+
+                            }
                             else if (DiceRolledlist[0] == DiceRolledlist[1])
+                            {
+                                Console.WriteLine("Player [BLANK] reroll or roll reaming dice?");
+
+                            }
+                            else if (DiceRolledlist[1] == DiceRolledlist[2])
+                            {
+                                Console.WriteLine("Player [BLANK] reroll or roll reaming dice?");
+
+                            }
+                            else if (DiceRolledlist[2] == DiceRolledlist[3])
+                            {
+                                Console.WriteLine("Player [BLANK] reroll or roll reaming dice?");
+
+                            }
+                            else if (DiceRolledlist[3] == DiceRolledlist[4])
                             {
                                 Console.WriteLine("Player [BLANK] reroll or roll reaming dice?");
 
