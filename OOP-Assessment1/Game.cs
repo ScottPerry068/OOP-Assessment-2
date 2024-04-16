@@ -1,4 +1,4 @@
-﻿using OOP_Assessment1;
+﻿using OOP_Assessment2;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -8,12 +8,17 @@ using System.Threading;
 
 namespace OOP_Assessment2
 {
-    public class Game:Statistics
+    public class Game: Statistics
     {
         // creates the variables
         private static int _DiceFace;// this variable is created to hold the dice values
         private int _result; //this creates the result
         private static Dice _Dice = new Dice();// this creates the dice objects
+        public static new int PlaysCounter { get; set; }
+        public static new int HighestScoreCount { get; set; }
+        NumberOfPlaysClass numberofplays = new NumberOfPlaysClass();
+        HighestScoreClass highestScore = new HighestScoreClass();
+
 
         //Global variables
         bool Start = true;
@@ -24,7 +29,6 @@ namespace OOP_Assessment2
         int Value;
         int y = 0;
         List<int> DiceRolledlist = new List<int>();
-        List<int> WinningList = new List<int>();
 
         // this method is just used to runs the sevens out dice game
         public void SevensOut()
@@ -36,7 +40,9 @@ namespace OOP_Assessment2
                 {
                     while (Start == true)
                     {
-                        for (i = 0 ; i < 2; i++)
+                    PlaysCounter++;
+                    Console.WriteLine("womp " + PlaysCounter);
+                    for (i = 0 ; i < 2; i++)
                         {
                             Console.WriteLine("Player " + (i + 1));
                             for (x = 0; x < 2; x++)
@@ -52,10 +58,11 @@ namespace OOP_Assessment2
                                 Console.WriteLine("This is roll: " + (x + 1) + " " + Value);
                                 _result = Value + Temp;
                                 Temp = _result;
-                                WinningList.Add(_result);
                                 if (_result == 7)
                                 {
                                     Console.WriteLine("Player " + (i + 1) + " you win!");
+                                    numberofplays.NumberOfPlays();
+                                    highestScore.HighestScore();
                                     Environment.Exit(0);
                                 }
                                 if (DiceRolledlist[0] == DiceRolledlist[1])
@@ -64,12 +71,14 @@ namespace OOP_Assessment2
                                 }
                             }
                             Console.WriteLine(_result);
+                            HighestScoreCount = HighestScoreCount + _result;
                             DiceRolledlist.Clear();
                             Value = 0;
                             Temp = 0;
                         }
                         i = 0;
                         x = 0;
+
                     }
                 }
 
@@ -124,7 +133,7 @@ namespace OOP_Assessment2
                             }
                         }
                         Console.WriteLine(_result);
-                        WinningList.Add(_result);
+                        HighestScoreCount = HighestScoreCount + _result;
                         DiceRolledlist.Clear();
                         Value = 0;
                         Temp = 0;
@@ -319,6 +328,7 @@ namespace OOP_Assessment2
                                 if (Counter == 4)
                                 {
                                     Console.WriteLine("Player gets 12 points");
+
                                 }
                                 else if (Counter == 3)
                                 {
