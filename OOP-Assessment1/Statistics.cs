@@ -1,13 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Statistics
+namespace OOP_Assessment1
 {
-	public NumberOfPlays()
-	{
+    public class Statistics
+    {
+        public void HighestScore()
+        {
 
-	}
-	public HighestScore()
-	{
+        }
+        public void NumberofTurns()
+        {
 
-	}
+        }
+    }
 }
