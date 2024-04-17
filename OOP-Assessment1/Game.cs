@@ -8,16 +8,14 @@ using System.Threading;
 
 namespace OOP_Assessment2
 {
-    public class Game: Statistics
+    public class Game
     {
         // creates the variables
         private static int _DiceFace;// this variable is created to hold the dice values
         private int _result; //this creates the result
         private static Dice _Dice = new Dice();// this creates the dice objects
-        public static new int PlaysCounter { get; set; }
-        public static new int HighestScoreCount { get; set; }
-        NumberOfPlaysClass numberofplays = new NumberOfPlaysClass();
-        HighestScoreClass highestScore = new HighestScoreClass();
+        NumberOfPlaysCounter numberofplays = new NumberOfPlaysCounter();
+        HighestScoreCounter highestScore = new HighestScoreCounter();
 
 
         //Global variables
@@ -40,8 +38,8 @@ namespace OOP_Assessment2
                 {
                     while (Start == true)
                     {
-                    PlaysCounter++;
-                    Console.WriteLine("womp " + PlaysCounter);
+                    numberofplays.CounterIncrease();
+                    Console.WriteLine("womp " + numberofplays.GetCounter());
                     for (i = 0 ; i < 2; i++)
                         {
                             Console.WriteLine("Player " + (i + 1));
@@ -62,7 +60,9 @@ namespace OOP_Assessment2
                                 {
                                     Console.WriteLine("Player " + (i + 1) + " you win!");
                                     numberofplays.NumberOfPlays();
-                                    highestScore.HighestScore();
+                                    Console.WriteLine("the number of turns: " + numberofplays.GetCounter()) ;
+                                    highestScore.GetHighestScore();
+                                    Console.WriteLine("the highest score was: " + highestScore.GetHighestScore()) ;
                                     Environment.Exit(0);
                                 }
                                 if (DiceRolledlist[0] == DiceRolledlist[1])
@@ -71,7 +71,7 @@ namespace OOP_Assessment2
                                 }
                             }
                             Console.WriteLine(_result);
-                            HighestScoreCount = HighestScoreCount + _result;
+                            highestScore.HighestScoreIncrese(_result,i);
                             DiceRolledlist.Clear();
                             Value = 0;
                             Temp = 0;
@@ -133,7 +133,7 @@ namespace OOP_Assessment2
                             }
                         }
                         Console.WriteLine(_result);
-                        HighestScoreCount = HighestScoreCount + _result;
+                        //HighestScoreCount = HighestScoreCount + _result;
                         DiceRolledlist.Clear();
                         Value = 0;
                         Temp = 0;

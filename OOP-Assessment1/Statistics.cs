@@ -9,38 +9,61 @@ namespace OOP_Assessment2
 {
     public class Statistics
     {
-        private static int _totalplayscounter = 0;
+        private static int _totalcounter = 0;
+        public static int highestscore = 0;
         public static int PlaysCounter
         {
-            get { return _totalplayscounter; }
-            set { _totalplayscounter = value; }
+            get { return _totalcounter; }
+            set { _totalcounter = value; }
         }
 
-        private static int _totalscorecounter = 0;
         public static int HighestScoreCount
         {
-            get { return _totalscorecounter; }
-            set { _totalscorecounter = value; }
+            get { return highestscore; }
+            set { highestscore = value; }
         }
 
-        public class HighestScoreClass : Statistics
+        public void CounterReset()
         {
-            public int HighestScore()
-            {
-                Console.WriteLine("the Highest score was: " + HighestScoreCount);
-                return HighestScoreCount;
-            }
+            _totalcounter = 0;
         }
-        public class NumberOfPlaysClass : Statistics
+        public void CounterIncrease()
         {
-            public int NumberOfPlays()
-            {
-                Console.WriteLine("the number of turns was: " + PlaysCounter);
-                return Game.PlaysCounter;
-            }
+            _totalcounter++;
+        }
+        public int GetCounter()
+        {
+            return _totalcounter;
+        }
+
+        public int GetHighestScore()
+        {
+            return highestscore;
         }
     }
+
+
+        public class HighestScoreCounter:Statistics
+        {
+        public HighestScoreCounter()
+        {
+            highestscore = 0;
+        }
+
+        public void HighestScoreIncrese(int result, int i)
+        {
+            highestscore = highestscore + result;
+        }
+        }
+        public class NumberOfPlaysCounter: Statistics
+        {
+            public void NumberOfPlays()
+            {
+                CounterIncrease();
+            }
+        }
 }
+
 
         
     
