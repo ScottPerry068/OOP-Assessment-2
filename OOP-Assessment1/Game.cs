@@ -38,10 +38,10 @@ namespace OOP_Assessment2
                 {
                     while (Start == true)
                     {
-                    numberofplays.CounterIncrease();
-                    Console.WriteLine("womp " + numberofplays.GetCounter());
                     for (i = 0 ; i < 2; i++)
                         {
+                            numberofplays.CounterIncrease();
+                            Console.WriteLine("this is turn:  " + numberofplays.GetCounter());
                             Console.WriteLine("Player " + (i + 1));
                             for (x = 0; x < 2; x++)
                             {
@@ -86,7 +86,7 @@ namespace OOP_Assessment2
                 {
                 while (Start == true)
                 {
-                    for (y = 0; y < 2; y++)
+                    for (int y = 0; y < 2; y++)
                     {
                         if (y == 0)
                         {
@@ -101,7 +101,7 @@ namespace OOP_Assessment2
 
                             }
                         }
-                        else if (y == 1)
+                        else
                         {
                             Console.WriteLine("Computers turn");
                             for (i = 0; i < 2; i++)
@@ -114,30 +114,42 @@ namespace OOP_Assessment2
 
                             }
                         }
-                    }
+
                         for (int z = 0; z < 2; z++)
                         {
                             Value = DiceRolledlist[z];
                             _result = Value + Temp;
                             Temp = _result;
-                            y = 0;
                             if (DiceRolledlist[0] == DiceRolledlist[1])
                             {
                                 _result = _result * 2;
                             }
-
                             if (_result == 7)
                             {
-                                Console.WriteLine("you win!");
+                                if (y == 0)
+                                {
+                                    Console.WriteLine("You win!");
+                                }
+                                if (y == 1)
+                                {
+                                    Console.WriteLine("Computer wins!");
+                                }
+                                numberofplays.NumberOfPlays();
+                                Console.WriteLine("the number of turns: " + numberofplays.GetCounter());
+                                highestScore.GetHighestScore();
+                                Console.WriteLine("the highest score was: " + highestScore.GetHighestScore());
                                 Environment.Exit(0);
                             }
                         }
+                        numberofplays.CounterIncrease();
+                        Console.WriteLine("this is turn:  " + numberofplays.GetCounter());
                         Console.WriteLine(_result);
-                        //HighestScoreCount = HighestScoreCount + _result;
                         DiceRolledlist.Clear();
+                        highestScore.HighestScoreIncrese(_result, i);
                         Value = 0;
                         Temp = 0;
                     }
+                }
                 }
                 else
                 {
