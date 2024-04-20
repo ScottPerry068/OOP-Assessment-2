@@ -67,7 +67,7 @@ namespace OOP_Assessment2
                                     Console.WriteLine("the number of turns: " + numberofplays.GetCounter()) ;
                                     highestScore.GetHighestScore();
                                     Console.WriteLine("the highest score was: " + highestScore.GetHighestScore()) ;
-                                    sevensouttest.SevensOutTesting(_result);
+                                    sevensouttest.SevensOutTesting(_result, Value, Temp);
                             }
                                 if (DiceRolledlist[0] == DiceRolledlist[1])
                                 {
@@ -144,7 +144,7 @@ namespace OOP_Assessment2
                                 Console.WriteLine("the number of turns: " + numberofplays.GetCounter());
                                 highestScore.GetHighestScore();
                                 Console.WriteLine("the highest score was: " + highestScore.GetHighestScore());
-                                Environment.Exit(0);
+                                sevensouttest.SevensOutTesting(_result, Value, Temp);
                             }
                         }
                         numberofplays.CounterIncrease();
@@ -171,11 +171,12 @@ namespace OOP_Assessment2
                 if (user == "1")
                 {
                 WinningList.Add(0);WinningList.Add(0);
+                WinningList.Add(0);
                 while (Start == true)
                 {
-                    for (int y = 0; y < 2; y++)
+                    for (int y = 1; y < 3; y++)
                     {
-                        Console.WriteLine("Player " + (y + 1));
+                        Console.WriteLine("Player " + (y));
                         for (i = 0; i < 5; i++)
                         {
                             _DiceFace = _Dice.Roll();
@@ -229,50 +230,52 @@ namespace OOP_Assessment2
                         }
                         if (Counter >= 1)
                         {
-                            Console.WriteLine("Counter is working");
                             if (Counter == 4)
                             {
                                 Console.WriteLine("Player gets 12 points");
-                                Console.WriteLine(y);
                                 WinningList[y] = WinningList[y] + 12;
                             }
                             else if (Counter == 3)
                             {
-                                Console.WriteLine("PLayer gets 6 points");
-                                Console.WriteLine(y);
+                                Console.WriteLine("Player gets 6 points");
                                 WinningList[y] = WinningList[y] + 6;
                             }
                             else if (Counter == 2)
                             {
-                                Console.WriteLine("PLayer gets 3 points");
-                                Console.WriteLine(y);
+                                Console.WriteLine("Player gets 3 points");
                                 WinningList[y] = WinningList[y] + 3;
                             }
                             else if (Counter == 1)
                             {
-                                Console.WriteLine("PLayer to re-roll");
-                                Console.WriteLine(y);
+                                Console.WriteLine("Player to re-roll");
+                                if (y == 1)
+                                {
+                                    y = y - 1;
+                                }
+                                else
+                                {
+                                    y = y - 2;
+                                }
                             }
                         }
                         else
                         {
                             Console.WriteLine("No Matching numbers");
-                            Console.WriteLine(y);
                         }
-                        if (WinningList[y] >= 10)
+                        if (WinningList[y] >= 20)
                         {
                             highestScore.HighestScoreIncrese(WinningList[y]);
                             Console.WriteLine("Player "+(i+1)+" wins!");
                             Console.WriteLine("the number of turns was "+numberofplays.GetCounter());
                             Console.WriteLine("the total score of both players was "+ highestScore.GetHighestScore());
-                            threeormoretesting.ThreeOrMoreTesting(WinningList[y]);
+                            threeormoretesting.ThreeOrMoreTesting(WinningList[y], highestScore.GetHighestScore());
+
                         }
                         numberofplays.CounterIncrease();
                         Console.WriteLine("this is turn:  " + numberofplays.GetCounter());
                         x = 1;
                         i = 0;
                         Console.WriteLine(WinningList[y]);
-                        //Console.WriteLine("The highest score is  " + highestScore.GetHighestScore());
                         DiceRolledlist.Clear();
                         Counter = 0;
                     }
@@ -282,11 +285,12 @@ namespace OOP_Assessment2
                         if (user == "2")
                         {
                 WinningList.Add(0); WinningList.Add(0);
+                WinningList.Add(0); 
                 while (Start == true)
                     {
-                        for (int y = 0; y < 2; y++)
+                        for (int y = 1; y < 3; y++)
                         {
-                            if (y == 0)
+                            if (y == 1)
                             {
                                 Console.WriteLine("Player 1");
                                 for (i = 0; i < 5; i++)
@@ -380,6 +384,15 @@ namespace OOP_Assessment2
                                 else if (Counter == 1)
                                 {
                                     Console.WriteLine("Player to re-roll");
+                                if (y == 1)
+                                {
+                                    y = y-1;
+                                }
+                                else
+                                {
+                                    y = y - 2;
+                                }
+                                
                                 }
                             }
                             else
