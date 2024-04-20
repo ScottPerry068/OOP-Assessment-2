@@ -10,32 +10,23 @@ using System.Threading.Tasks;
 
 namespace OOP_Assessment2
 {
-    public class Testing
+    public class Testing:Game
     {
-        // creates the variables
-        private int _D1Face;private int _D2Face; private int _D3Face; // this creates the Dice face variables for testing
-        private int _result; // this creates the result variable
-
-        // creates the objects
-        private Dice _D1 = new Dice();private Dice _D2 = new Dice();private Dice _D3 = new Dice(); // this creates the new dice objects for testing (object instantiation)
-
-        // runs the face check 
-        public void Test()
+        public void SevensOutTesting(int win)//, int total)
         {
-            _D1Face = _D1.Roll(); // This calls the roll method to give the dice a value 
-            Debug.Assert(_D1Face >= 1 && _D1Face <= 6, "D1 is not within the correct range, check the roll range!"); // This checks to see if the dice rolls an integer within the range 1-6
-            _D2Face = _D2.Roll(); // This calls the roll method to give the dice a value
-            Debug.Assert(_D2Face >= 1 && _D2Face <= 6, "D2 is not within the correct range, check the roll range!"); // This checks to see if the dice rolls an integer within the range 1-6
-            _D3Face = _D3.Roll(); // This calls the roll method to give the dice a value
-            Debug.Assert(_D3Face >= 1 && _D3Face <= 6, "D3 is not within the correct range, check the roll range!"); // This checks to see if the dice rolls an integer within the range 1-6
+            public void SevensOutWin(int win) {
+                Debug.Assert(win == 7, "The total did not equal 7 when a win was made, So this means the Win criteria is wrong!! Please look over the win criteria!!");
+                Environment.Exit(0);
+            }
         }   
-        
-        //runs the sum check
-        public void Testsum()
+
+        public void ThreeOrMoreTesting(int win)
         {
-            _D1Face = _D1.Roll();_D2Face = _D2.Roll();_D3Face = _D3.Roll();//this rolls the three dice
-            _result = _D1Face + _D2Face+ _D3Face;//this does the addition for the three dice faces 
-            Debug.Assert(_result == _D1Face +_D2Face+_D3Face, "The sums don't match, there is an issue!");//this checks to see if the sum of the three faces is correct
+            void ThreeOrMoreWin(int win)
+            {
+                Debug.Assert(win >= 20, "The total did not equal 20 when a win was made, So this means the Win criteria is wrong!! Please look over the win criteria!!");
+                Environment.Exit(0);
+            }
         }
 
         

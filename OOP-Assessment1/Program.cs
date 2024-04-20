@@ -13,9 +13,6 @@ namespace OOP_Assessment2
         private static void Main()
         {
             Game game = new Game(); // this created the a new game for running 
-            Testing gametest = new Testing();
-
-
             Console.WriteLine("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
             Console.WriteLine("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
             Console.WriteLine("░░░░░░░░░░░░░░█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████░░░░░░░░░░░░░░░░░░");
@@ -52,30 +49,20 @@ namespace OOP_Assessment2
             Console.WriteLine("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
             Console.WriteLine("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
             var user = Console.ReadLine();
-            //int user = Convert.ToInt32(User);
-            
-                if (user == "1")
-                {
-                    game.SevensOut();
-                }
-                if (user == "2")
-                {
-                    game.ThreeOrMore();
-                }
-            if (user == "3")
+            if (user == "1")
             {
-                Console.WriteLine("soon to be testing!!!!!!");
-                //gametest.Testsum();//this calls the method within the testing to test the dice 
-                //gametest.Test(); // this calls the method within testing to test the dice rolls 
+                game.SevensOut();
+            }
+            if (user == "2")
+            {
+                game.ThreeOrMore();
             }
             else
             {
                 Main();
             }
-            }
-            
-
-              }
         }
+    }
+}
     
 

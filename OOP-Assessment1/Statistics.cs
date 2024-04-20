@@ -50,7 +50,7 @@ namespace OOP_Assessment2
             highestscore = 0;
         }
 
-        public void HighestScoreIncrese(int result, int i)
+        public void HighestScoreIncrese(int result)
         {
             highestscore = highestscore + result;
         }
@@ -59,7 +59,7 @@ namespace OOP_Assessment2
         {
             public void NumberOfPlays()
             {
-                CounterIncrease();
+                GetCounter();
             }
         }
 }
