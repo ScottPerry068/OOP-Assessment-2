@@ -12,10 +12,10 @@ namespace OOP_Assessment2
 {
     public class Testing
     {
-        public void SevensOutTesting(int win, int value, int temp)//, int total)
+        public void SevensOutTesting(int win, int value, int temp)
         {
                 Debug.Assert(win == 7, "The total did not equal 7 when a win was made, So this means the Win criteria is wrong!! Please look over the win criteria!!");
-                Debug.Assert(win == value + temp, "the total is incorrect since the previous two values don't add up to current result, please check the loop where the temp value is added!! ");
+                Debug.Assert(win == (value + temp), "the total is incorrect since the previous two values don't add up to current result, please check the loop where the temp value is added!! ");
                 Environment.Exit(0);
         }   
 

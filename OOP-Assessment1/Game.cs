@@ -36,58 +36,53 @@ namespace OOP_Assessment2
         {
             //creates a Testing object
             Testing sevensouttest = new Testing();
-            
+
             Console.WriteLine("1: Human Player ");
             Console.WriteLine("2: Computer Player");
             var user = Console.ReadLine();
-                if (user == "1")
+            if (user == "1")
+            {
+                while (Start == true)
                 {
-                    while (Start == true)
+                    for (i = 0; i < 2; i++)
                     {
-                    for (i = 0 ; i < 2; i++)
+                        Console.WriteLine("Player " + (i + 1));
+                        for (x = 0; x < 2; x++)
                         {
-                            Console.WriteLine("Player " + (i + 1));
-                            for (x = 0; x < 2; x++)
-                            {
-                                _DiceFace = _Dice.Roll();
-                                DiceRolledlist.Add(_DiceFace);
-                            }
-                            for (x = 0; x < 2; x++)
-                            {
-                                Console.WriteLine("any key to roll");
-                                Console.ReadKey(true);
-                                Value = DiceRolledlist[x];
-                                Console.WriteLine("This is roll: " + (x + 1) + " " + Value);
-                                _result = Value + Temp;
-                                Temp = _result;
-                                if (_result == 5)
-                                {
-                                    Console.WriteLine("Player " + (i + 1) + " you win!");
-                                    numberofplays.NumberOfPlays();
-                                    Console.WriteLine("the number of turns: " + numberofplays.GetCounter()) ;
-                                    highestScore.GetHighestScore();
-                                    Console.WriteLine("the highest score was: " + highestScore.GetHighestScore()) ;
-                                    sevensouttest.SevensOutTesting(_result, Value, Temp);
-                            }
-                                if (DiceRolledlist[0] == DiceRolledlist[1])
-                                {
-                                    _result = _result * 2;
-                                }
-                            }
-
-                            Console.WriteLine(_result);
-                            highestScore.HighestScoreIncrese(_result);
-                            DiceRolledlist.Clear();
-                            numberofplays.CounterIncrease();
-                            Console.WriteLine("this is turn:  " + numberofplays.GetCounter());
-                            Value = 0;
-                            Temp = 0;
+                            _DiceFace = _Dice.Roll();
+                            DiceRolledlist.Add(_DiceFace);
                         }
-                        i = 0;
-                        x = 0;
-
+                        for (x = 0; x < 2; x++)
+                        {
+                            Console.WriteLine("any key to roll");
+                            Console.ReadKey(true);
+                            Value = DiceRolledlist[x];
+                            Console.WriteLine("This is roll: " + (x + 1) + " " + Value);
+                            _result = DiceRolledlist[0] + DiceRolledlist[1];
+                        }
+                        if (_result == 7)
+                        {
+                            Console.WriteLine("Player " + (i + 1) + " you win!");
+                            numberofplays.NumberOfPlays();
+                            Console.WriteLine("the number of turns: " + numberofplays.GetCounter());
+                            highestScore.GetHighestScore();
+                            Console.WriteLine("the highest score was: " + highestScore.GetHighestScore());
+                            sevensouttest.SevensOutTesting(_result, DiceRolledlist[0], DiceRolledlist[1]);
+                        }
+                        if (DiceRolledlist[0] == DiceRolledlist[1])
+                        {
+                            _result = _result * 2;
+                        }
                     }
+
+                    Console.WriteLine(_result);
+                    highestScore.HighestScoreIncrese(_result);
+                    DiceRolledlist.Clear();
+                    numberofplays.CounterIncrease();
+                    Console.WriteLine("this is turn:  " + numberofplays.GetCounter());
                 }
+            }
+        
 
                 if (user == "2")
                 {
@@ -125,8 +120,7 @@ namespace OOP_Assessment2
                         for (int z = 0; z < 2; z++)
                         {
                             Value = DiceRolledlist[z];
-                            _result = Value + Temp;
-                            Temp = _result;
+                            _result = DiceRolledlist[0]+DiceRolledlist[1];
                             if (DiceRolledlist[0] == DiceRolledlist[1])
                             {
                                 _result = _result * 2;
@@ -144,7 +138,7 @@ namespace OOP_Assessment2
                                 Console.WriteLine("the number of turns: " + numberofplays.GetCounter());
                                 highestScore.GetHighestScore();
                                 Console.WriteLine("the highest score was: " + highestScore.GetHighestScore());
-                                sevensouttest.SevensOutTesting(_result, Value, Temp);
+                                sevensouttest.SevensOutTesting(_result, DiceRolledlist[0],DiceRolledlist[1]);
                             }
                         }
                         numberofplays.CounterIncrease();
@@ -152,8 +146,6 @@ namespace OOP_Assessment2
                         Console.WriteLine(_result);
                         DiceRolledlist.Clear();
                         highestScore.HighestScoreIncrese(_result);
-                        Value = 0;
-                        Temp = 0;
                     }
                 }
                 }

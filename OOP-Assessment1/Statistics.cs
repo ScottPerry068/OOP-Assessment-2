@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -11,6 +12,8 @@ namespace OOP_Assessment2
     {
         private static int _totalcounter = 0;
         public static int highestscore = 0;
+        public string file = Path.GetFullPath("stats.txt");
+
         public static int PlaysCounter
         {
             get { return _totalcounter; }
@@ -60,8 +63,8 @@ namespace OOP_Assessment2
             public void NumberOfPlays()
             {
                 GetCounter();
-            }
         }
+    }
 }
 
 
