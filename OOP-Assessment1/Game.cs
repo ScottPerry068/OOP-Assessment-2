@@ -7,6 +7,9 @@ using System.Threading;
 
 namespace OOP_Assessment2
 {
+    /// <summary>
+    /// This class holds both games (SevensOut and ThreeOrMore)
+    /// </summary>
     public class Game
     {
         // creates the variables for functionality
@@ -23,23 +26,27 @@ namespace OOP_Assessment2
         int i = 0;
         int x = 1;
         int Counter = 0;
-        int Temp = 0;
-        int Value;
-        int y = 0;
 
         //Global Lists
         List<int> DiceRolledlist = new List<int>();
         List<int> WinningList = new List<int>();
 
-        // this method is just used to runs the sevens out dice game
+        /// <summary>
+        /// this method is used to run the sevens out dice game
+        /// </summary>
         public void SevensOut()
         {
             //creates a Testing object
             Testing sevensouttest = new Testing();
 
+            //this gives the user two options of if they want to play agains another player or against the computer
             Console.WriteLine("1: Human Player ");
             Console.WriteLine("2: Computer Player");
+
+            //this reads the users choice
             var user = Console.ReadLine();
+
+            //this takes the users input and puts the user into the respective game mode
             if (user == "1")
             {
                 while (Start == true)
@@ -51,109 +58,111 @@ namespace OOP_Assessment2
                         {
                             _DiceFace = _Dice.Roll();
                             DiceRolledlist.Add(_DiceFace);
+                            Console.WriteLine("any key to roll");
+                            Console.ReadKey(true);
+                            Console.WriteLine("This is roll: " + (x + 1) + " " + DiceRolledlist[x]);
                         }
                         for (x = 0; x < 2; x++)
                         {
-                            Console.WriteLine("any key to roll");
-                            Console.ReadKey(true);
-                            Value = DiceRolledlist[x];
-                            Console.WriteLine("This is roll: " + (x + 1) + " " + Value);
                             _result = DiceRolledlist[0] + DiceRolledlist[1];
-                        }
-                        if (_result == 7)
-                        {
-                            Console.WriteLine("Player " + (i + 1) + " you win!");
-                            numberofplays.NumberOfPlays();
-                            Console.WriteLine("the number of turns: " + numberofplays.GetCounter());
-                            highestScore.GetHighestScore();
-                            Console.WriteLine("the highest score was: " + highestScore.GetHighestScore());
-                            sevensouttest.SevensOutTesting(_result, DiceRolledlist[0], DiceRolledlist[1]);
-                        }
-                        if (DiceRolledlist[0] == DiceRolledlist[1])
-                        {
-                            _result = _result * 2;
-                        }
-                    }
-
-                    Console.WriteLine(_result);
-                    highestScore.HighestScoreIncrese(_result);
-                    DiceRolledlist.Clear();
-                    numberofplays.CounterIncrease();
-                    Console.WriteLine("this is turn:  " + numberofplays.GetCounter());
-                }
-            }
-        
-
-                if (user == "2")
-                {
-                while (Start == true)
-                {
-                    for (int y = 0; y < 2; y++)
-                    {
-                        if (y == 0)
-                        {
-                            Console.WriteLine("Player 1");
-                            for (i = 0; i < 2; i++)
+                            if (_result == 7)
                             {
-                                _DiceFace = _Dice.Roll();
-                                DiceRolledlist.Add(_DiceFace);
-                                Console.WriteLine("any key to roll");
-                                Console.ReadKey(true);
-                                Console.WriteLine("this is dice roll : " + DiceRolledlist[i]);
-
+                                Console.WriteLine("Player " + (i + 1) + " you win!");
+                                numberofplays.NumberOfPlays();
+                                Console.WriteLine("the number of turns: " + numberofplays.GetCounter());
+                                highestScore.GetHighestScore();
+                                Console.WriteLine("the highest score was: " + highestScore.GetHighestScore());
+                                sevensouttest.SevensOutTesting(_result, DiceRolledlist[0], DiceRolledlist[1]);
                             }
-                        }
-                        else
-                        {
-                            Console.WriteLine("Computers turn");
-                            for (i = 0; i < 2; i++)
-                            {
-                                _DiceFace = _Dice.Roll();
-                                DiceRolledlist.Add(_DiceFace);
-                                int Delay = 1000;
-                                Thread.Sleep(Delay);
-                                Console.WriteLine("this is dice roll : " + DiceRolledlist[i]);
-
-                            }
-                        }
-
-                        for (int z = 0; z < 2; z++)
-                        {
-                            Value = DiceRolledlist[z];
-                            _result = DiceRolledlist[0]+DiceRolledlist[1];
                             if (DiceRolledlist[0] == DiceRolledlist[1])
                             {
                                 _result = _result * 2;
                             }
-                            if (_result == 7)
-                            {
-                                if (y == 0)
-                                {
-                                    Console.WriteLine("You win!");
-                                }
-                                if (y == 1)
-                                {
-                                    Console.WriteLine("Computer wins!");
-                                }
-                                Console.WriteLine("the number of turns: " + numberofplays.GetCounter());
-                                highestScore.GetHighestScore();
-                                Console.WriteLine("the highest score was: " + highestScore.GetHighestScore());
-                                sevensouttest.SevensOutTesting(_result, DiceRolledlist[0],DiceRolledlist[1]);
-                            }
                         }
+
+                        Console.WriteLine(_result);
+                        highestScore.HighestScoreIncrese(_result);
+                        DiceRolledlist.Clear();
                         numberofplays.CounterIncrease();
                         Console.WriteLine("this is turn:  " + numberofplays.GetCounter());
-                        Console.WriteLine(_result);
-                        DiceRolledlist.Clear();
-                        highestScore.HighestScoreIncrese(_result);
                     }
+                    i = 0;
                 }
+
+
+                if (user == "2")
+                {
+                    while (Start == true)
+                    {
+                        for (int y = 0; y < 2; y++)
+                        {
+                            if (y == 0)
+                            {
+                                Console.WriteLine("Player 1");
+                                for (i = 0; i < 2; i++)
+                                {
+                                    _DiceFace = _Dice.Roll();
+                                    DiceRolledlist.Add(_DiceFace);
+                                    Console.WriteLine("any key to roll");
+                                    Console.ReadKey(true);
+                                    Console.WriteLine("this is dice roll : " + DiceRolledlist[i]);
+
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Computers turn");
+                                for (i = 0; i < 2; i++)
+                                {
+                                    _DiceFace = _Dice.Roll();
+                                    DiceRolledlist.Add(_DiceFace);
+                                    int Delay = 1000;
+                                    Thread.Sleep(Delay);
+                                    Console.WriteLine("this is dice roll : " + DiceRolledlist[i]);
+
+                                }
+                            }
+
+                            for (int z = 0; z < 2; z++)
+                            {
+                                _result = DiceRolledlist[0] + DiceRolledlist[1];
+                                if (DiceRolledlist[0] == DiceRolledlist[1])
+                                {
+                                    _result = _result * 2;
+                                }
+                                if (_result == 7)
+                                {
+                                    if (y == 0)
+                                    {
+                                        Console.WriteLine("You win!");
+                                    }
+                                    if (y == 1)
+                                    {
+                                        Console.WriteLine("Computer wins!");
+                                    }
+                                    Console.WriteLine("the number of turns: " + numberofplays.GetCounter());
+                                    highestScore.GetHighestScore();
+                                    Console.WriteLine("the highest score was: " + highestScore.GetHighestScore());
+                                    sevensouttest.SevensOutTesting(_result, DiceRolledlist[0], DiceRolledlist[1]);
+                                }
+                            }
+                            numberofplays.CounterIncrease();
+                            Console.WriteLine("this is turn:  " + numberofplays.GetCounter());
+                            Console.WriteLine(_result);
+                            DiceRolledlist.Clear();
+                            highestScore.HighestScoreIncrese(_result);
+                        }
+                    }
                 }
                 else
                 {
                     SevensOut();
                 }
             }
+        }
+        /// <summary>
+        /// this method is used to run the Three Or  More dice game
+        /// </summary>
         public void ThreeOrMore()
         {
             Testing threeormoretesting = new Testing();

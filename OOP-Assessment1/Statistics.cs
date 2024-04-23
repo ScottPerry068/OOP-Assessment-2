@@ -12,7 +12,6 @@ namespace OOP_Assessment2
     {
         private static int _totalcounter = 0;
         public static int highestscore = 0;
-        public string file = Path.GetFullPath("stats.txt");
 
         public static int PlaysCounter
         {
@@ -66,9 +65,3 @@ namespace OOP_Assessment2
         }
     }
 }
-
-
-        
-    
-
-

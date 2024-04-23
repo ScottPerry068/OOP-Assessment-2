@@ -10,7 +10,9 @@ namespace OOP_Assessment2
 {
     public class Program
     {
-        //this runs the entire program
+        /// <summary>
+        /// This starts the program by the user choosing the game they want to play
+        /// </summary>
         private static void Main()
         {
             Game game = new Game(); // this created the a new game for running 
@@ -65,5 +67,3 @@ namespace OOP_Assessment2
         }
     }
 }
-    
-
