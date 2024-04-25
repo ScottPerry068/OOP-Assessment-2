@@ -33,11 +33,21 @@ namespace OOP_Assessment2
         /// </summary>
         /// <param name="win"></param>
         /// <param name="high"></param>
-        public void ThreeOrMoreTesting(int win, int high)
+        /// <param name="high2"></param>
+        /// <param name="player"></param>
+        public void ThreeOrMoreTesting(int win, int high,int high2,int player)
         {
-                Debug.Assert(win >= 20, "The total did not equal 20 when a win was made, So this means the Win criteria is wrong!! Please look over the win criteria!!");
-                Debug.Assert(win == high, "The addition was incorrect please check!!") ;
-                Environment.Exit(0);
+            Debug.Assert(win >= 20, "The total did not equal 20 when a win was made, So this means the Win criteria is wrong!! Please look over the win criteria!!");
+            if (player == 0)
+            {
+                Debug.Assert(win == high, "The addition was incorrect please check!!");
+
+            }
+            if (player == 1)
+            {
+                Debug.Assert(win == high2, "The addition was incorrect please check!!");
+            }
+            Environment.Exit(0);
         }
 
         
