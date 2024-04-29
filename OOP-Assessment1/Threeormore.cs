@@ -195,22 +195,10 @@ namespace OOP_Assessment2
                         numberofplays.CounterIncrease(); // this increases the turn counter
                         x = 1;
                         i = 0;
-                        //Console.WriteLine(WinningList[y]);
                         DiceRolledlist.Clear();
                         Counter = 0;
                     }
-                    //x = 1;
-                    //i = 0;
-                    ////Console.WriteLine(WinningList[y]);
-                    //DiceRolledlist.Clear();
-                    //Counter = 0;
                 }
-
-
-
-
-
-                
             }
             catch
             {
