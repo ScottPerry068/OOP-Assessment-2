@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace OOP_Assessment2
 {
+    /// <summary>
+    /// This method creates my dice roll function
+    /// </summary>
     public class Dice
     {
         //creates the random 

@@ -15,7 +15,8 @@ namespace OOP_Assessment2
         /// </summary>
         private static void Main()
         {
-            Game game = new Game(); // this created the a new game for running 
+            Sevensout game = new Sevensout(); // this created the a new game for running 
+            Threeormore Game = new Threeormore(); // this created the a new game for running 
             Console.WriteLine("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
             Console.WriteLine("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░");
             Console.WriteLine("░░░░░░░░░░░░░░█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████░░░░░░░░░░░░░░░░░░");
@@ -54,11 +55,11 @@ namespace OOP_Assessment2
             var user = Console.ReadLine();
             if (user == "1")
             {
-                game.SevensOut();
+                game.SevensOutGame();
             }
             if (user == "2")
             {
-                game.ThreeOrMore();
+                Game.ThreeOrMore();
             }
             else
             {
