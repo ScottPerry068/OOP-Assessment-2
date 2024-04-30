@@ -13,6 +13,7 @@ namespace OOP_Assessment2
     /// </summary>
     public class Statistics
     {
+
         private static int _totalcounter = 0;
 
         public static int highestscore = 0;
@@ -86,13 +87,11 @@ namespace OOP_Assessment2
             if (player == 0)
             {
                 P1highestscore = highestscore + result;
-                Console.WriteLine("P1");
 
             }
             if (player == 1)
             {
                 P2highestscore = highestscore2 + result;
-                Console.WriteLine("P2");
             }
         }
         }

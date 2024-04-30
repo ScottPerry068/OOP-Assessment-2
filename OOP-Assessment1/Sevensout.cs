@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -79,7 +80,6 @@ namespace OOP_Assessment2
                                 }
                             }
                         }
-                        Console.WriteLine("yes");
                         result = DiceRolledlist[0] + DiceRolledlist[1]; // this adds the 2 dice rolls together
                         if (DiceRolledlist[0] == DiceRolledlist[1]) //this check if the 2 dice rolls were the same 
                         {
@@ -108,8 +108,11 @@ namespace OOP_Assessment2
                                         Console.WriteLine("the number of turns: " + numberofplays.GetCounter());
                                         Console.WriteLine("the winning score was: " + highestScore.GetHighestScore(i)); // this is the winning score for this round
                                         Console.WriteLine("the highest score was: " + highestScore2.GetHighestScore((i + 1))); //this is the highest score of the round
-                                        sevensouttest.SevensOutTesting(result, DiceRolledlist[0], DiceRolledlist[1]); // this takes it to the testing class
+                                        int[] NumberToWrite = { numberofplays.GetCounter(), highestScore.GetHighestScore(i) };
+                                        string TurnNumberToString = string.Join(Environment.NewLine, NumberToWrite);
+                                        File.WriteAllText("SevensOutStats.txt", TurnNumberToString);
                                     }
+
                                     if (WinningList[1] < WinningList[0]) // this checks if the whole game total against the opposite player
                                     {
                                         i = 1;
@@ -117,8 +120,11 @@ namespace OOP_Assessment2
                                         Console.WriteLine("the number of turns: " + numberofplays.GetCounter());
                                         Console.WriteLine("the winning score was: " + highestScore2.GetHighestScore(i)); // this is the winning score for this round
                                         Console.WriteLine("the highest score was: " + highestScore.GetHighestScore((i - 1))); //this is the highest score of the round
-                                        sevensouttest.SevensOutTesting(result, DiceRolledlist[0], DiceRolledlist[1]); // this takes it to the testing class
+                                        int[] StatsToWrite = { numberofplays.GetCounter(), highestScore2.GetHighestScore(i) };
+                                        string StringToNumberConversion = string.Join(Environment.NewLine, StatsToWrite);
+                                        File.WriteAllText("SevensOutStats.txt", StringToNumberConversion);
                                     }
+                                    sevensouttest.SevensOutTesting(result, DiceRolledlist[0], DiceRolledlist[1]); // this takes it to the testing class
                                 }
                             }
                         }

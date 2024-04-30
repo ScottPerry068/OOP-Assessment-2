@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -180,6 +181,9 @@ namespace OOP_Assessment2
                                 Console.WriteLine("Player " + (i + 1) + " wins!");
                                 Console.WriteLine("the number of turns was " + numberofplays.GetCounter());
                                 Console.WriteLine("the winning score of player 1 was " + highestScore.GetHighestScore(i));
+                                int[] NumberToWrite = {numberofplays.GetCounter(), highestScore.GetHighestScore(i)};
+                                string TurnNumberToString = string.Join(Environment.NewLine, NumberToWrite);
+                                File.WriteAllText("ThreeOrMoreStats.txt", TurnNumberToString);
                             }
                             if (i == 1)
                             {
@@ -187,6 +191,9 @@ namespace OOP_Assessment2
                                 Console.WriteLine("Player " + (i + 1) + " wins!");
                                 Console.WriteLine("the number of turns was " + numberofplays.GetCounter());
                                 Console.WriteLine("the winning score for player 2 was " + highestScore2.GetHighestScore(i));
+                                int[] StatsToWrite = { numberofplays.GetCounter(), highestScore2.GetHighestScore(i) };
+                                string StringToNumberConversion = string.Join(Environment.NewLine, StatsToWrite);
+                                File.WriteAllText("ThreeOrMoreStats.txt", StringToNumberConversion);
 
                             }
                             threeormoretesting.ThreeOrMoreTesting(WinningList[y], highestScore.GetHighestScore(i), highestScore2.GetHighestScore(i), i);
