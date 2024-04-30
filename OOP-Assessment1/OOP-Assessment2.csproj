@@ -47,10 +47,17 @@
     <Compile Include="Game.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sevensout.cs" />
+    <Compile Include="Statistics.cs" />
     <Compile Include="Testing.cs" />
+    <Compile Include="Threeormore.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SevensOutStats.txt" />
+    <Content Include="ThreeOrMoreStats.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

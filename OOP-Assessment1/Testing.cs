@@ -3,42 +3,151 @@ using System.CodeDom;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOP_Assessment1
+namespace OOP_Assessment2
 {
+    /// <summary>
+    /// This class holds both game testing methods
+    /// </summary>
     public class Testing
     {
-        // creates the variables
-        private int _D1Face;private int _D2Face; private int _D3Face; // this creates the Dice face variables for testing
-        private int _result; // this creates the result variable
-
-        // creates the objects
-        private Dice _D1 = new Dice();private Dice _D2 = new Dice();private Dice _D3 = new Dice(); // this creates the new dice objects for testing (object instantiation)
-
-        // runs the face check 
-        public void Test()
+        public Dice dice = new Dice();
+        List<int> DieList = new List<int>();
+        List<int> WinningList = new List<int>();
+        /// <summary>
+        /// This method checks sevens out win critera and the score of both players at the end of the game
+        /// </summary>
+        /// <param name="win"></param>
+        /// <param name="value"></param>
+        /// <param name="temp"></param>
+        public void SevensOutTesting(int win, int value, int temp)
         {
-            _D1Face = _D1.Roll(); // This calls the roll method to give the dice a value 
-            Debug.Assert(_D1Face >= 1 && _D1Face <= 6, "D1 is not within the correct range, check the roll range!"); // This checks to see if the dice rolls an integer within the range 1-6
-            _D2Face = _D2.Roll(); // This calls the roll method to give the dice a value
-            Debug.Assert(_D2Face >= 1 && _D2Face <= 6, "D2 is not within the correct range, check the roll range!"); // This checks to see if the dice rolls an integer within the range 1-6
-            _D3Face = _D3.Roll(); // This calls the roll method to give the dice a value
-            Debug.Assert(_D3Face >= 1 && _D3Face <= 6, "D3 is not within the correct range, check the roll range!"); // This checks to see if the dice rolls an integer within the range 1-6
-        }   
-        
-        //runs the sum check
-        public void Testsum()
-        {
-            _D1Face = _D1.Roll();_D2Face = _D2.Roll();_D3Face = _D3.Roll();//this rolls the three dice
-            _result = _D1Face + _D2Face+ _D3Face;//this does the addition for the three dice faces 
-            Debug.Assert(_result == _D1Face +_D2Face+_D3Face, "The sums don't match, there is an issue!");//this checks to see if the sum of the three faces is correct
+            Debug.Assert(win == 7, "The total did not equal 7 when a win was made, So this means the Win criteria is wrong!! Please look over the win criteria!!");
+            Debug.Assert(win == (value + temp), "the total is incorrect since the previous two values don't add up to current result, please check the loop where the temp value is added!! ");
+            Environment.Exit(0);
         }
 
-        
+        /// <summary>
+        /// This method checks three or more win critera and the score of both players at the end of the game
+        /// </summary>
+        /// <param name="win"></param>
+        /// <param name="high"></param>
+        /// <param name="high2"></param>
+        /// <param name="player"></param>
+        public void ThreeOrMoreTesting(int win, int high, int high2, int player)
+        {
+            Debug.Assert(win >= 20, "The total did not equal 20 when a win was made, So this means the Win criteria is wrong!! Please look over the win criteria!!");
+            if (player == 0)
+            {
+                Debug.Assert(win == high, "The addition was incorrect please check!!");
+
+            }
+            if (player == 1)
+            {
+                Debug.Assert(win == high2, "The addition was incorrect please check!!");
+            }
+            Environment.Exit(0);
+        }
+
+        /// <summary>
+        /// this is the testing from the menu that the user can choose to test the three or more game
+        /// </summary>
+        public void UserTestingSevensOut()
+        {
+            int result;
+            int Dieface;
+            while (true)
+            {
+                DieList.Clear();
+                for (int i = 0; i < 2; i++)
+                {
+                    Dieface = dice.Roll();
+                    DieList.Add(Dieface);
+                }
+                result = DieList[0] + DieList[1];
+                if (result == 7)
+                {
+                    break;
+                }
+            }
+            Console.WriteLine(result);
+            Debug.Assert(result == 7, "The total did not equal 7 when a win was made, So this means the Win criteria is wrong!! Please look over the win criteria!!");
+            Debug.Assert(result == DieList[0] + DieList[1], "the total is incorrect since the previous two values don't add up to current result, please check the loop where the temp value is added!! ");
+            Console.WriteLine("Check finished, all working!");
+            Environment.Exit(0);
+        }
+        /// <summary>
+        /// this is the testing from the menu that the user can choose to test the three or more game
+        /// </summary>
+        public void UserTestingThreeOrMore()
+        {
+            int Dieface;
+            int Counter = 0;
+            int i;
+            int x;
+            while (true)
+            {
+                WinningList.Add(0);
+                DieList.Clear();
+                for (i = 0; i < 5; i++)
+                {
+                    Dieface = dice.Roll();
+                    DieList.Add(Dieface);
+                    DieList.Sort();
+                }
+                if (DieList[0] == DieList[1])
+                {
+                    Counter++;
+                }
+                else if (DieList[1] == DieList[2])
+                {
+                    Counter++;
+                }
+                else if (DieList[2] == DieList[3])
+                {
+                    Counter++;
+                }
+                else if (DieList[3] == DieList[4])
+                {
+                    Counter++;
+                }
+                else if (DieList[4] == DieList[5])
+                {
+                    Counter++;
+                }
+
+                if (Counter >= 2)
+                {
+                    if (Counter == 5)
+                    {
+                        WinningList[0] = WinningList[0] + 12;
+                    }
+                    if (Counter == 4)
+                    {
+                        WinningList[0] = WinningList[0] + 6;
+                    }
+                    if (Counter == 3)
+                    {
+                        WinningList[0] = WinningList[0] + 3;
+                    }
+                }
+                if (WinningList[0] >= 19)
+                {
+                    break;
+                }
+            }
+            Console.WriteLine(WinningList[0]);
+            Debug.Assert(WinningList[0] >= 20, "The total did not equal 7 when a win was made, So this means the Win criteria is wrong!! Please look over the win criteria!!");
+            Console.WriteLine("Check finished, all working!");
+            Environment.Exit(0);
+
+        }
+    }
+
 
     }
-}

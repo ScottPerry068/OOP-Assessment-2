@@ -4,8 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOP_Assessment1
+namespace OOP_Assessment2
 {
+    /// <summary>
+    /// This method creates my dice roll function
+    /// </summary>
     public class Dice
     {
         //creates the random 
